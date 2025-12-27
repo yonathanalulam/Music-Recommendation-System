@@ -10,7 +10,7 @@ st.set_page_config(
 )
 
 
-st.title("🎶 Instant Music Recommender")
+st.title("🎶 Music Recommender")
 
 song_list = sorted(df['song'].dropna().unique())
 selected_song = st.selectbox("🎵 Select a song:", song_list)
