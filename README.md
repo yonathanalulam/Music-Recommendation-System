@@ -4,9 +4,14 @@ The program basically uses lyrics that've been properly cleaned up as a basis fo
 
 
 
-Imported packages/libraries
+necessary packages/libraries
 streamlit
 pandas
 scikit-learn
 nltk
 joblib
+
+Dataset can either be directly downloaded from [Kaggle](https://www.kaggle.com/datasets/notshrirang/spotify-million-song-dataset/data). If the file size is inconvenient you can generate an API key from there and incldue it in your project. 
+
+
+
