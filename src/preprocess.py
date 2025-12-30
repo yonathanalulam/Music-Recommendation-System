@@ -10,6 +10,7 @@ from nltk.tokenize import word_tokenize
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
+
 # Setup logging
 logging.basicConfig(
     level=logging.INFO,
@@ -35,7 +36,6 @@ except Exception as e:
 
 # Drop link column and preprocess
 df = df.drop(columns=['link'], errors='ignore').reset_index(drop=True)
-
 # Text cleaning
 stop_words = set(stopwords.words('english'))
 
@@ -45,12 +45,11 @@ def preprocess_text(text):
     tokens = word_tokenize(text)
     tokens = [word for word in tokens if word not in stop_words]
     return " ".join(tokens)
-
 logging.info("🧹 Cleaning text...")
 df['cleaned_text'] = df['text'].apply(preprocess_text)
 logging.info("✅ Text cleaned.")
 
-# Vectorization
+# Vectorization/prep
 logging.info("🔠 Vectorizing using TF-IDF...")
 tfidf = TfidfVectorizer(max_features=5000)
 tfidf_matrix = tfidf.fit_transform(df['cleaned_text'])
@@ -61,7 +60,7 @@ logging.info("📐 Calculating cosine similarity...")
 cosine_sim = cosine_similarity(tfidf_matrix, tfidf_matrix)
 logging.info("✅ Cosine similarity matrix generated.")
 
-# Save everything
+# Saving everyhing
 joblib.dump(df, 'df_cleaned.pkl')
 joblib.dump(tfidf_matrix, 'tfidf_matrix.pkl')
 joblib.dump(cosine_sim, 'cosine_sim.pkl')
