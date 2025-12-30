@@ -2,10 +2,10 @@
 import streamlit as st
 from recommend import df, recommend_songs
 
-# Set custom Streamlit page config
+# Set custom Streamlit page config/landing page
 st.set_page_config(
     page_title="Music Recommender 🎵",
-    page_icon="🎧",  # You can also use a path to a .ico or .png file
+    page_icon="🎧",
     layout="centered"
 )
 
