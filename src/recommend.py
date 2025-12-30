@@ -22,6 +22,7 @@ except Exception as e:
     raise e
 
 
+#Recommendation function
 def recommend_songs(song_name, top_n=5):
     logging.info("🎵 Recommending songs for: '%s'", song_name)
     idx = df[df['song'].str.lower() == song_name.lower()].index
