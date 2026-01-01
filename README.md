@@ -2,8 +2,6 @@
 
   The recommendation is based on on cosine similarity concept 
 
-
-
 required packages/libraries
 streamlit
 pandas
